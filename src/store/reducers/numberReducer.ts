@@ -1,8 +1,8 @@
 import { NumberAction, NumberActionTypes, NumberState } from "../../types/number"
 
 const initialState: NumberState = {
-    numberComputer: 0,
-    numberUser: 0,
+    numberComputer: '0',
+    numberUser: '0',
     win: false,
     trials: 0,
     helperMessage: null

@@ -9,25 +9,22 @@ const MainBlock: React.FC = () => {
     const {createNumber, setWin, setTrials, SetHelperMessage} = useActions();
     const {numberComputer, numberUser, win, trials, helperMessage} = useTypedSelector(state => state.number);
 
-    const reset: boolean = false;
-
     const OnClickTry = () => {
         if (win) {
             return;
         }
 
         setTrials();
-        if (numberComputer === numberUser) {
+        if (parseInt(numberComputer) === parseInt(numberUser)) {
             setWin(true);
         } else {
             setWin(false);
 
-            if (numberComputer > numberUser) {
+            if (parseInt(numberComputer) > parseInt(numberUser)) {
                 SetHelperMessage('LESS');
             } else {
                 SetHelperMessage('')
             }
-
         }
     }
 

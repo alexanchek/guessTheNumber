@@ -1,23 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { StylesDictionary } from '../types/stylesDictionary';
 
 const Input: React.FC = () => {
-    const { setUserNumber, setTrials } = useActions();
-    const { numberUser } = useTypedSelector(state => state.number);
+    const { setUserNumber, setTrials, setWin, SetHelperMessage } = useActions();
+    const { numberUser, numberComputer, win } = useTypedSelector(state => state.number);
+    const [ value, setValue ] = useState('');
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (parseInt(e.target.value) < 1) {
-            return;
-        } 
-
-        setUserNumber(parseInt(e.target.value));
+        setValue(e.target.value);
+        setUserNumber(e.target.value);
     }
 
     const OnKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
+            e.preventDefault();
+
+            if (win) return;
+            setUserNumber(value);
+
             setTrials();
+            if (parseInt(numberComputer) === parseInt(numberUser)) {
+                setWin(true);
+            } else {
+                setWin(false);
+    
+                if (parseInt(numberComputer) > parseInt(numberUser)) {
+                    SetHelperMessage('LESS');
+                } else {
+                    SetHelperMessage('')
+                }
+            }
+
         }
     }
 

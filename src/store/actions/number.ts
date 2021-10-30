@@ -3,7 +3,7 @@ import {NumberAction, NumberActionTypes} from '../../types/number'
 
 export const createNumber = () => {
     return (dispatch: Dispatch<NumberAction>) => {
-        const random = Math.ceil(Math.random()*10);
+        const random = String(Math.ceil(Math.random()*10));
         dispatch({type: NumberActionTypes.CREATE_NUMBER, payload: random})
         dispatch({type: NumberActionTypes.SET_WIN, payload: false})
         dispatch({type: NumberActionTypes.RESET_TRIALS});
@@ -11,7 +11,7 @@ export const createNumber = () => {
     }
 }
 
-export const setUserNumber = (userNumber: number) => {
+export const setUserNumber = (userNumber: string) => {
     return (dispatch: Dispatch<NumberAction>) => {
         dispatch({type: NumberActionTypes.SET_USERNUMBER, payload: userNumber})
     };

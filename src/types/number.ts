@@ -1,6 +1,6 @@
 export interface NumberState {
-    numberComputer: number,
-    numberUser: number | string,
+    numberComputer: string,
+    numberUser: string,
     win: boolean,
     trials: number,
     helperMessage: string | null
@@ -17,12 +17,12 @@ export enum NumberActionTypes {
 
 interface CreateNumberAction {
     type: NumberActionTypes.CREATE_NUMBER,
-    payload: number;
+    payload: string;
 }
 
 interface SetUserNumberAction {
     type: NumberActionTypes.SET_USERNUMBER,
-    payload: number | string;
+    payload: string;
 }
 
 interface setWinAction {
