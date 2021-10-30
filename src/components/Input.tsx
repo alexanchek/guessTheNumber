@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { StylesDictionary } from '../types/stylesDictionary';
 
-interface IInput {
-    reset: boolean;
-}
-
-const Input: React.FC<IInput> = ({reset}) => {
+const Input: React.FC = () => {
     const { setUserNumber, setTrials } = useActions();
-    const { win, numberUser } = useTypedSelector(state => state.number);
+    const { numberUser } = useTypedSelector(state => state.number);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (parseInt(e.target.value) < 1) {

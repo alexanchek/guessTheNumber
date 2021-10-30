@@ -45,7 +45,7 @@ const MainBlock: React.FC = () => {
                     </div>
                     computer guessed the number. Are you able to guess it?
 
-                    <Input reset={reset}/>
+                    <Input />
                     <Button text={`Let's try it!`} action={OnClickTry}/>
                     <Button text={'Please, refresh the number'} action={onClickRefresh}/>
 
