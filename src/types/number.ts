@@ -1,6 +1,6 @@
 export interface NumberState {
     numberComputer: number,
-    numberUser: number,
+    numberUser: number | string,
     win: boolean,
     trials: number,
     helperMessage: string | null
@@ -22,7 +22,7 @@ interface CreateNumberAction {
 
 interface SetUserNumberAction {
     type: NumberActionTypes.SET_USERNUMBER,
-    payload: number;
+    payload: number | string;
 }
 
 interface setWinAction {

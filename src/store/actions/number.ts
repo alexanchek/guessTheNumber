@@ -6,7 +6,8 @@ export const createNumber = () => {
         const random = Math.ceil(Math.random()*10);
         dispatch({type: NumberActionTypes.CREATE_NUMBER, payload: random})
         dispatch({type: NumberActionTypes.SET_WIN, payload: false})
-        dispatch({type: NumberActionTypes.RESET_TRIALS})
+        dispatch({type: NumberActionTypes.RESET_TRIALS});
+        dispatch({type: NumberActionTypes.SET_USERNUMBER, payload: ''});
     }
 }
 
@@ -18,7 +19,7 @@ export const setUserNumber = (userNumber: number) => {
 
 export const setWin = (condition: boolean) => {
     return (dispatch: Dispatch<NumberAction>) => {
-        dispatch({type: NumberActionTypes.SET_WIN, payload: condition})
+        dispatch({type: NumberActionTypes.SET_WIN, payload: condition});
     };
 }
 

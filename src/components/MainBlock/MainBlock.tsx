@@ -9,6 +9,8 @@ const MainBlock: React.FC = () => {
     const {createNumber, setWin, setTrials, SetHelperMessage} = useActions();
     const {numberComputer, numberUser, win, trials, helperMessage} = useTypedSelector(state => state.number);
 
+    const reset: boolean = false;
+
     const OnClickTry = () => {
         if (win) {
             return;
@@ -31,6 +33,7 @@ const MainBlock: React.FC = () => {
 
     const onClickRefresh = () => {
         createNumber();
+
     }
     
     return (
@@ -42,7 +45,7 @@ const MainBlock: React.FC = () => {
                     </div>
                     computer guessed the number. Are you able to guess it?
 
-                    <Input/>
+                    <Input reset={reset}/>
                     <Button text={`Let's try it!`} action={OnClickTry}/>
                     <Button text={'Please, refresh the number'} action={onClickRefresh}/>
 
