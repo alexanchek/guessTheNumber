@@ -6,15 +6,26 @@ import Button from '../Button';
 import Input from '../Input';
 
 const MainBlock: React.FC = () => {
-    const {createNumber, setWin, setTrials} = useActions();
-    const {numberComputer, numberUser, win, trials} = useTypedSelector(state => state.number);
+    const {createNumber, setWin, setTrials, SetHelperMessage} = useActions();
+    const {numberComputer, numberUser, win, trials, helperMessage} = useTypedSelector(state => state.number);
 
     const OnClickTry = () => {
+        if (win) {
+            return;
+        }
+
         setTrials();
         if (numberComputer === numberUser) {
             setWin(true);
         } else {
             setWin(false);
+
+            if (numberComputer > numberUser) {
+                SetHelperMessage('LESS');
+            } else {
+                SetHelperMessage('')
+            }
+
         }
     }
 
@@ -32,11 +43,11 @@ const MainBlock: React.FC = () => {
                     computer guessed the number. Are you able to guess it?
 
                     <Input/>
-                    <Button text={'Попробовать'} action={OnClickTry}/>
-                    <Button text={'Начать с начала'} action={onClickRefresh}/>
+                    <Button text={`Let's try it!`} action={OnClickTry}/>
+                    <Button text={'Please, refresh the number'} action={onClickRefresh}/>
 
-                    {!win && trials > 0 ? <div>Нужно угадывать ;) Пока попыток: {trials}</div>: null}
-                    {win ? <div>Вы победили, количество попыток: {trials}</div> : null}
+                    {!win && trials > 0 ? <div> {helperMessage} You tried {trials} times</div>: null}
+                    {win ? <div>Congratulations! You win! you tried {trials} times.</div> : null}
                 </div>
             </div>
         </div>

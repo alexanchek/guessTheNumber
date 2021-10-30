@@ -27,3 +27,15 @@ export const setTrials = () => {
         dispatch({type: NumberActionTypes.SET_TRIALS})
     };
 }
+
+export const SetHelperMessage = (parameter: string) => {
+    if (parameter === "LESS") {
+        return (dispatch: Dispatch<NumberAction>) => {
+            dispatch({type: NumberActionTypes.SET_HELPER_MESSAGE, payload: 'The number must be greater!'})
+        }
+    } else {
+        return (dispatch: Dispatch<NumberAction>) => {
+            dispatch({type: NumberActionTypes.SET_HELPER_MESSAGE, payload: 'The number must be less!'})
+        }
+    }
+}
