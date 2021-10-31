@@ -40,10 +40,11 @@ const MainBlock: React.FC = () => {
 
 const styles:StylesDictionary = {
     container: {
-        margin: 'auto'
+        margin: 'auto',
+        padding: '0 20px'
     },
     bigSize: {
-        width: '40rem',
+        width: '100%',
         height: '40rem'
     },
 }
