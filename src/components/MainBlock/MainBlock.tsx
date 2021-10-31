@@ -10,15 +10,11 @@ const MainBlock: React.FC = () => {
     const {numberComputer, numberUser, win, trials, helperMessage} = useTypedSelector(state => state.number);
 
     const OnClickTry = () => {
-        if (win) {
-            return;
-        }
-        setTrials(numberComputer, numberUser);
+        setTrials(numberComputer, numberUser, win);
     }
 
     const onClickRefresh = () => {
         createNumber();
-
     }
     
     return (

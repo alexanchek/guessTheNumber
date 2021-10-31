@@ -13,7 +13,7 @@ SET_HELPER_MESSAGE - whatever a player number it shows that a number must be les
 
 const initialState: NumberState = {
     numberComputer: '0',
-    numberUser: '0',
+    numberUser: '',
     win: false,
     trials: 0,
     helperMessage: null

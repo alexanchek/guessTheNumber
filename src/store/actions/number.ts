@@ -25,10 +25,15 @@ export const setWin = (condition: boolean) => {
     };
 }
 
-export const setTrials = (numberComputer: string, numberUser: string): ThunkAction<void, RootState, null, NumberAction> => {
+export const setTrials = (numberComputer: string, numberUser: string, win: boolean): ThunkAction<void, RootState, null, NumberAction> => {
     return async dispatch => {
+        // we must check out if the game is finished or user doesnt write a number
+        if (win || numberUser === '') return;
+
+        // increase a trial by 1
         dispatch({type: NumberActionTypes.SET_TRIALS});
 
+        // check out values and set "win state"
         if (parseInt(numberComputer) === parseInt(numberUser)) {
             dispatch(setWin(true));
         } else {

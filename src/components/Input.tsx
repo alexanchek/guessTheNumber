@@ -12,16 +12,13 @@ const Input: React.FC = () => {
         setValue(e.target.value);
         setUserNumber(e.target.value);
     }
-    
+
     const OnKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault();
 
-            if (win) return;
             setUserNumber(value);
-
-            setTrials(numberComputer, numberUser);
-
+            setTrials(numberComputer, numberUser, win);
         }
     }
 
