@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/guessTheNumber/static/js/main.67a1b9ff.chunk.js",
-    "main.js.map": "/guessTheNumber/static/js/main.67a1b9ff.chunk.js.map",
+    "main.js": "/guessTheNumber/static/js/main.843db054.chunk.js",
+    "main.js.map": "/guessTheNumber/static/js/main.843db054.chunk.js.map",
     "runtime-main.js": "/guessTheNumber/static/js/runtime-main.9f373914.js",
     "runtime-main.js.map": "/guessTheNumber/static/js/runtime-main.9f373914.js.map",
     "static/js/2.733a1dba.chunk.js": "/guessTheNumber/static/js/2.733a1dba.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.9f373914.js",
     "static/js/2.733a1dba.chunk.js",
-    "static/js/main.67a1b9ff.chunk.js"
+    "static/js/main.843db054.chunk.js"
   ]
 }
