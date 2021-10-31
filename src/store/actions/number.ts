@@ -23,9 +23,21 @@ export const setWin = (condition: boolean) => {
     };
 }
 
-export const setTrials = () => {
+export const setTrials = (numberComputer: string, numberUser: string) => {
     return (dispatch: Dispatch<NumberAction>) => {
         dispatch({type: NumberActionTypes.SET_TRIALS})
+
+        if (parseInt(numberComputer) === parseInt(numberUser)) {
+            setWin(true);
+        } else {
+            setWin(false);
+
+            if (parseInt(numberComputer) > parseInt(numberUser)) {
+                SetHelperMessage('LESS');
+            } else {
+                SetHelperMessage('')
+            }
+        }
     };
 }
 

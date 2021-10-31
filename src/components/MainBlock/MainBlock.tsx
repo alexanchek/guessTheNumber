@@ -14,7 +14,7 @@ const MainBlock: React.FC = () => {
             return;
         }
 
-        setTrials();
+        setTrials(numberComputer, numberUser);
         if (parseInt(numberComputer) === parseInt(numberUser)) {
             setWin(true);
         } else {

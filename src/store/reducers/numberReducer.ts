@@ -1,5 +1,16 @@
 import { NumberAction, NumberActionTypes, NumberState } from "../../types/number"
 
+/*
+
+CREATE_NUMBER - create a new number from 1 to 10, reset trials
+SET_USERNUMBER - set the number of the player
+SET_WIN - if the game is finished, SET_WIN stops the game and doesn't allow to send new numbers
+SET_TRIALS - increase the amount of trials by 1
+RESET_TRIALS - reset the amount of trials to 0.
+SET_HELPER_MESSAGE - whatever a player number it shows that a number must be less or greater
+
+*/
+
 const initialState: NumberState = {
     numberComputer: '0',
     numberUser: '0',

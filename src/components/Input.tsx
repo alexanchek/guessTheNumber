@@ -20,7 +20,7 @@ const Input: React.FC = () => {
             if (win) return;
             setUserNumber(value);
 
-            setTrials();
+            setTrials(numberComputer, numberUser);
             if (parseInt(numberComputer) === parseInt(numberUser)) {
                 setWin(true);
             } else {
