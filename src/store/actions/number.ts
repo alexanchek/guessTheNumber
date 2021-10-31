@@ -1,5 +1,7 @@
 import { Dispatch } from "react"
+import { ThunkAction } from "redux-thunk";
 import {NumberAction, NumberActionTypes} from '../../types/number'
+import { RootState } from "../reducers";
 
 export const createNumber = () => {
     return (dispatch: Dispatch<NumberAction>) => {
@@ -23,22 +25,22 @@ export const setWin = (condition: boolean) => {
     };
 }
 
-export const setTrials = (numberComputer: string, numberUser: string) => {
-    return (dispatch: Dispatch<NumberAction>) => {
-        dispatch({type: NumberActionTypes.SET_TRIALS})
+export const setTrials = (numberComputer: string, numberUser: string): ThunkAction<void, RootState, null, NumberAction> => {
+    return async dispatch => {
+        dispatch({type: NumberActionTypes.SET_TRIALS});
 
         if (parseInt(numberComputer) === parseInt(numberUser)) {
-            setWin(true);
+            dispatch(setWin(true));
         } else {
-            setWin(false);
+            dispatch(setWin(false));
 
             if (parseInt(numberComputer) > parseInt(numberUser)) {
-                SetHelperMessage('LESS');
+                dispatch(SetHelperMessage('LESS'));
             } else {
-                SetHelperMessage('')
+                dispatch(SetHelperMessage(''));
             }
         }
-    };
+    }
 }
 
 export const SetHelperMessage = (parameter: string) => {

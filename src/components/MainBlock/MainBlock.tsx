@@ -6,26 +6,14 @@ import Button from '../Button';
 import Input from '../Input';
 
 const MainBlock: React.FC = () => {
-    const {createNumber, setWin, setTrials, SetHelperMessage} = useActions();
+    const {createNumber, setTrials} = useActions();
     const {numberComputer, numberUser, win, trials, helperMessage} = useTypedSelector(state => state.number);
 
     const OnClickTry = () => {
         if (win) {
             return;
         }
-
         setTrials(numberComputer, numberUser);
-        if (parseInt(numberComputer) === parseInt(numberUser)) {
-            setWin(true);
-        } else {
-            setWin(false);
-
-            if (parseInt(numberComputer) > parseInt(numberUser)) {
-                SetHelperMessage('LESS');
-            } else {
-                SetHelperMessage('')
-            }
-        }
     }
 
     const onClickRefresh = () => {
