@@ -30,6 +30,11 @@ export const setTrials = (numberComputer: string, numberUser: string, win: boole
         // we must check out if the game is finished or user doesnt write a number
         if (win || numberUser === '') return;
 
+        if (parseInt(numberUser) > 10 || parseInt(numberUser) < 1) {
+            dispatch({type: NumberActionTypes.SET_HELPER_MESSAGE, payload: 'Please, input a number from 1 to 10!'})
+            return;
+        }
+
         // increase a trial by 1
         dispatch({type: NumberActionTypes.SET_TRIALS});
 

@@ -24,14 +24,15 @@ const MainBlock: React.FC = () => {
                     <div className="card-title" style={styles.title}>
                         <h2>Guess a number</h2>
                     </div>
-                    computer guessed the number. Are you able to guess it?
+                    computer guessed the number from 1 to 10. Are you able to guess it?
 
                     <Input />
                     <Button text={`Let's try it!`} action={OnClickTry}/>
                     <Button text={'Please, refresh the number'} action={onClickRefresh}/>
 
-                    {!win && trials > 0 ? <div> {helperMessage} You tried {trials} times</div>: null}
-                    {win ? <div>Congratulations! You win! you tried {trials} times.</div> : null}
+                    {!win ? <div>{ helperMessage }</div> : null }
+                    {!win && trials > 0 ? <div> You tried <b>{trials}</b> times.</div>: null}
+                    {win ? <div><strong>Congratulations! You win! you tried {trials} times.</strong></div> : null}
                 </div>
             </div>
         </div>
