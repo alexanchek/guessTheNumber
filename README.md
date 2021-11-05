@@ -10,6 +10,7 @@ Made from ground zero. The goal of the game is to guess the number the app creat
 - Custom Hooks: useTypedSelector and useNumberActions for adding types to selectors and actions of Redux
 - Redux, Redux-thunk
 - Custom component styles (with adding of types to them)
+- Cypress & testing-library (for integration tests)
 
 ## Requirements
 Please, install the needful dependencies using
