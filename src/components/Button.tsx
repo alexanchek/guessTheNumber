@@ -3,13 +3,14 @@ import { StylesDictionary } from '../types/stylesDictionary';
 
 interface ButtonProps {
     text: string,
+    testLabel: string,
     action: () => void
 }
 
-const Button: React.FC<ButtonProps> = ({text, action}) => {
+const Button: React.FC<ButtonProps> = ({text, testLabel, action}) => {
     return (
         <div style={styles.btn_pd2}>
-            <button type="button" className="btn btn-primary" onClick={action}>{text}</button>
+            <button type="button" data-cy={testLabel} className="btn btn-primary" onClick={action}>{text}</button>
         </div>
     );
 };

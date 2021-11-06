@@ -25,7 +25,7 @@ const Input: React.FC = () => {
     return (
         <div style={styles.btn_pd2}>
             <form id="form-control">
-            <input className="form-control" type="number" placeholder="Your turn, sir!" value={numberUser} onChange={onChange} onKeyPress={OnKeyPressHandler}></input>
+            <input className="form-control" data-cy="input-field" type="number" placeholder="Your turn, sir!" value={numberUser} onChange={onChange} onKeyPress={OnKeyPressHandler}></input>
             </form>
         </div>
     );

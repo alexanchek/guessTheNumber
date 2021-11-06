@@ -27,8 +27,8 @@ const MainBlock: React.FC = () => {
                     computer guessed the number from 1 to 10. Are you able to guess it?
 
                     <Input />
-                    <Button text={`Let's try it!`} action={OnClickTry}/>
-                    <Button text={'Please, refresh the number'} action={onClickRefresh}/>
+                    <Button text={`Let's try it!`} action={OnClickTry} testLabel={"try-it"}/>
+                    <Button text={'Please, refresh the number'} action={onClickRefresh} testLabel={"refresh"}/>
 
                     {!win ? <div>{ helperMessage }</div> : null }
                     {!win && trials > 0 ? <div> You tried <b>{trials}</b> times.</div>: null}
