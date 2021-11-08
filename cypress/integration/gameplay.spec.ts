@@ -1,7 +1,7 @@
 const cases = [
-    {testcase: "123", right: "123"},
-    {testcase: "12a", right: "12"},
-    {testcase: "asdsads", right: ""}
+    {expected: "123", actual: "123"},
+    {expected: "12a", actual: "12"},
+    {expected: "asdsads", actual: ""}
 ];
 
 const BUTTON_TRY = "try-it";
@@ -30,9 +30,9 @@ describe('Gameplay testing', () => {
         const input = cy.get(`[data-cy=${INPUT_FIELD}]`);
 
         cases.map((element) => {
-            input.type(element.testcase);
-            input.should('have.value', element.right);
-            console.log(`testcase is ${element.testcase} and right answer should be ${element.right ? element.right : 'empty'} `)
+            input.type(element.expected);
+            input.should('have.value', element.actual);
+            console.log(`testcase is ${element.expected} and right answer should be ${element.actual ? element.actual : 'empty'} `)
             input.clear();
         });
     });
