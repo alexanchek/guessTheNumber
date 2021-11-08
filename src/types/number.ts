@@ -12,7 +12,7 @@ export enum NumberActionTypes {
     SET_WIN = "SET_WIN",
     SET_TRIALS = "SET_TRIALS",
     RESET_TRIALS = "RESET_TRIALS",
-    SET_HELPER_MESSAGE = "SET_HELPER_MESSAGE"
+    SET_HELPER_MESSAGE = "SET_HELPER_MESSAGE",
 }
 
 interface CreateNumberAction {
