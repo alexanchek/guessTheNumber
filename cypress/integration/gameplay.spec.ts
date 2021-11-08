@@ -1,4 +1,4 @@
-const mocks = [
+const cases = [
     {testcase: "123", right: "123"},
     {testcase: "12a", right: "12"},
     {testcase: "asdsads", right: ""}
@@ -29,10 +29,10 @@ describe('Gameplay testing', () => {
     it ('should enter only numbers, not any text', () => {
         const input = cy.get(`[data-cy=${INPUT_FIELD}]`);
 
-        mocks.map((mock) => {
-            input.type(mock.testcase);
-            input.should('have.value', mock.right);
-            console.log(`testcase is ${mock.testcase} and right answer should be ${mock.right ? mock.right : 'empty'} `)
+        cases.map((element) => {
+            input.type(element.testcase);
+            input.should('have.value', element.right);
+            console.log(`testcase is ${element.testcase} and right answer should be ${element.right ? element.right : 'empty'} `)
             input.clear();
         });
     });
