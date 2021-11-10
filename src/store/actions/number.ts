@@ -10,6 +10,7 @@ export const createNumber = () => {
         dispatch({type: NumberActionTypes.SET_WIN, payload: false})
         dispatch({type: NumberActionTypes.RESET_TRIALS});
         dispatch({type: NumberActionTypes.SET_USERNUMBER, payload: ''});
+        dispatch({type: NumberActionTypes.SET_HELPER_MESSAGE, payload: ''});
     }
 }
 

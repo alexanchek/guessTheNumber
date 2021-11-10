@@ -1,12 +1,19 @@
-const mocks = [
-    {testcase: "123", right: "123"},
-    {testcase: "12a", right: "12"},
-    {testcase: "asdsads", right: ""}
+const cases = [
+    {expected: "123", actual: "123"},
+    {expected: "12a", actual: "12"},
+    {expected: "asdsads", actual: ""}
 ];
 
 const BUTTON_TRY = "try-it";
 const BUTTON_REFRESH = "refresh";
 const INPUT_FIELD = "input-field";
+
+const cases_messages = [
+    {expected: "Please, input a number from 1 to 10!"},
+    {expected: "The number must be greater!"},
+    {expected: "The number must be less!"},
+    {expected: "You tried"}
+]
 
 const BIG_NUMBER = "1231234"
 
@@ -29,10 +36,10 @@ describe('Gameplay testing', () => {
     it ('should enter only numbers, not any text', () => {
         const input = cy.get(`[data-cy=${INPUT_FIELD}]`);
 
-        mocks.map((mock) => {
-            input.type(mock.testcase);
-            input.should('have.value', mock.right);
-            console.log(`testcase is ${mock.testcase} and right answer should be ${mock.right ? mock.right : 'empty'} `)
+        cases.map((element) => {
+            input.type(element.expected);
+            input.should('have.value', element.actual);
+            console.log(`testcase is ${element.expected} and right answer should be ${element.actual ? element.actual : 'empty'} `)
             input.clear();
         });
     });
@@ -62,6 +69,13 @@ describe('Gameplay testing', () => {
     it('Should clear the input field after refreshing the number', () => {
         cy.get(`[data-cy=${BUTTON_REFRESH}]`).click();
         cy.get(`[data-cy=${INPUT_FIELD}]`).should('be.empty');
+    });
+
+    it('Should not show the helper message after refreshing the number', () => {
+        cases_messages.map(message => {
+            cy.findByText(`/${message.expected}}/i`).should('not.exist');
+            console.log(`"${message.expected}" is not appearing`);
+        })  
     });
 });
 
