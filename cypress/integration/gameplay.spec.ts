@@ -1,3 +1,5 @@
+// input cypress open to manage tests
+
 const cases = [
     {expected: "123", actual: "123"},
     {expected: "12a", actual: "12"},
@@ -8,7 +10,7 @@ const BUTTON_TRY = "try-it";
 const BUTTON_REFRESH = "refresh";
 const INPUT_FIELD = "input-field";
 
-const cases_messages = [
+const CASES_MESSAGES = [
     {expected: "Please, input a number from 1 to 10!"},
     {expected: "The number must be greater!"},
     {expected: "The number must be less!"},
@@ -72,7 +74,7 @@ describe('Gameplay testing', () => {
     });
 
     it('Should not show the helper message after refreshing the number', () => {
-        cases_messages.map(message => {
+        CASES_MESSAGES.map(message => {
             cy.findByText(`/${message.expected}}/i`).should('not.exist');
             console.log(`"${message.expected}" is not appearing`);
         })  
