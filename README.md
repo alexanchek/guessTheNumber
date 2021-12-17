@@ -11,6 +11,7 @@ Made from ground zero. The goal of the game is to guess the number the app creat
 - Redux, Redux-thunk
 - Custom component styles (with adding of types to them)
 - Cypress & testing-library (for integration tests)
+- Husky for pre-commit (Prettier & ESLint) and pre-push (running tests) git hooks
 
 ## Requirements
 Please, install the needful dependencies using
